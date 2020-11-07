@@ -32,9 +32,7 @@ set(VENDOR_SOURCES ${GLAD_SOURCE} ${IMGUI_SOURCES})
 # A variable with all our source files that are common between executable targets (examples)
 set(COMMON_SOURCES
         source/common/application.cpp
-        source/common/shader.cpp
-        source/common/texture/texture-utils.cpp
-        source/common/texture/screenshot.cpp)
+        source/common/shader.cpp)
 
 # Define the directories in which to search for the included headers
 include_directories(

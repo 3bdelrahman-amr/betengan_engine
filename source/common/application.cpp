@@ -16,8 +16,6 @@
 #define ENABLE_OPENGL_DEBUG_MESSAGES
 #endif
 
-#include "texture/screenshot.h"
-
 // This function will be used to log errors thrown by GLFW
 void glfw_error_callback(int error, const char* description){
     std::cerr << "GLFW Error: " << error << ": " << description << std::endl;
@@ -232,20 +230,6 @@ int our::Application::run() {
         glEnable(GL_DEBUG_OUTPUT);
         glEnable(GL_DEBUG_OUTPUT_SYNCHRONOUS);
 #endif
-
-        // If F12 is pressed, take a screenshot
-        if(keyboard.justPressed(GLFW_KEY_F12)){
-            glViewport(0, 0, frame_buffer_size.x, frame_buffer_size.y);
-            std::stringstream stream;
-            auto time = std::time(nullptr);
-            auto localtime = std::localtime(&time);
-            stream << "screenshots/screenshot-" << std::put_time(localtime, "%Y-%m-%d-%H-%M-%S") << ".png";
-            if(our::screenshot_png(stream.str())){
-                std::cout << "Screenshot saved to: " << stream.str() << std::endl;
-            } else {
-                std::cerr << "Failed to save a Screenshot" << std::endl;
-            }
-        }
 
         // Swap the frame buffers
         glfwSwapBuffers(window);

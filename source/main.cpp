@@ -20,6 +20,10 @@ class UniformsApplication : public our::Application {
         program.attach("../assets/shaders/g_shape/calc_color.frag", GL_FRAGMENT_SHADER);
         program.link();
 
+        //blend config for using the alpha channel for transperency:
+        glEnable(GL_BLEND);
+        glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
+
         glGenVertexArrays(1, &vertex_array);
 
         glClearColor(0.0f, 0.0f, 0.0f, 1.0f);

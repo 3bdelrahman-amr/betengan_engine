@@ -17,7 +17,7 @@ void main() {
         if (dist >= R1 && dist <= R2)     //R2>R1
             frag_color = vec4(color, 1.0);
         else
-            frag_color = vec4(0.0,0.0,0.0,1.0); //just black
+            frag_color = vec4(0.0,0.0,0.0,1.0);
     */
     vec2 center=vec2(0.0,0.0);
     center += translation;
@@ -27,7 +27,10 @@ void main() {
         frag_color = vec4(color, 1.0);
     else if (dist >= R1 && dist <= R2 )     //R2>R1
         frag_color = vec4(color, 1.0);
-    else
-        frag_color = vec4(0.0,0.0,0.0,1.0); //just black
+    else{
+        frag_color = vec4(0.0,0.0,0.0,0.0);//transperenet
+    }
+
+
 
 }
