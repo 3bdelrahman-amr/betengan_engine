@@ -1,0 +1,5 @@
+D:/university/third year/graphics/betengan_engine/build/CMakeFiles/LAMA_ENGINE.dir
+D:/university/third year/graphics/betengan_engine/build/CMakeFiles/ALL_BUILD.dir
+D:/university/third year/graphics/betengan_engine/build/CMakeFiles/ZERO_CHECK.dir
+D:/university/third year/graphics/betengan_engine/build/vendor/glfw/CMakeFiles/ALL_BUILD.dir
+D:/university/third year/graphics/betengan_engine/build/vendor/glfw/src/CMakeFiles/glfw.dir

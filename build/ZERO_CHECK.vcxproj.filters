@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="D:\university\third year\graphics\betengan_engine\build\CMakeFiles\ece5d568ad09dd10adf7aa648e25b9a5\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{53A86228-ADDB-33EC-87D8-CECE7A815C98}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
