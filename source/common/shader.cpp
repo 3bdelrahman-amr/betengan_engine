@@ -13,12 +13,19 @@ void our::ShaderProgram::create() {
     //Create Shader Program
     program = glCreateProgram();
 }
-
+/////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////
 void our::ShaderProgram::destroy() {
     //Delete Shader Program
     if(program != 0) glDeleteProgram(program);
     program = 0;
 }
+/////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////
 
 bool our::ShaderProgram::attach(const std::string &filename, GLenum type) const {
     // first, we use C++17 filesystem library to get the directory (parent) path of the file.
@@ -45,8 +52,8 @@ bool our::ShaderProgram::attach(const std::string &filename, GLenum type) const 
     // count (GLsizei): number of strings passed in the third parameter. We only have one string here.
     // string (const GLchar**): an array of source code strings.
     // lengths (const GLint*): an array of string lengths for each string in the third parameter. if null is passed,
-    //                          then the function will deduce the lengths automatically by searching for '\0'.
-    glShaderSource(shaderID, 1, &source, nullptr); //Send shader source code
+    //           then the function will deduce the lengths automatically by searching for '\0'.
+    glShaderSource(shaderID,1,&source, nullptr); //Send shader source code
     glCompileShader(shaderID); //Compile the shader code
     free(source);
 
@@ -58,17 +65,21 @@ bool our::ShaderProgram::attach(const std::string &filename, GLenum type) const 
         glGetShaderiv(shaderID, GL_INFO_LOG_LENGTH, &length);
         char *logStr = new char[length];
         glGetShaderInfoLog(shaderID, length, nullptr, logStr);
-        std::cerr << "ERROR IN " << filename << std::endl;
+        std::cerr << "ERROR IN" << filename << std::endl;
         std::cerr << logStr << std::endl;
         delete[] logStr;
         glDeleteShader(shaderID);
         return false;
     }
 
-    glAttachShader(program, shaderID); //Attach shader to program
+    glAttachShader(program , shaderID); //Attach shader to program
     glDeleteShader(shaderID); //Delete shader (the shader is already attached to the program so its object is no longer needed)
     return true;
 }
+/////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////
 
 bool our::ShaderProgram::link() const {
     //Link

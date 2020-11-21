@@ -3,7 +3,7 @@
 
 #include <string>
 #include <map>
-
+#include"../../build/VertexBuffer.h"
 #include <glad/gl.h>
 #include <glm/glm.hpp>
 #include <glm/gtc/type_ptr.hpp>
@@ -16,11 +16,11 @@ namespace our {
         //Shader Program Handle
         GLuint program;
         std::map<std::string, GLuint> uniform_location_cache;
-
+        VertexBuffer vb;
     public:
         void create();
         void destroy();
-
+        GLuint getProgramId() { return program; }
         ShaderProgram(){ program = 0; }
         ~ShaderProgram(){ destroy(); }
 
@@ -33,6 +33,9 @@ namespace our {
         //Link Program (Do this after all shaders are attached)
         bool link() const; // NOLINT: link does alter the object state so [[nodiscard]] is unneeded
 
+
+        ///////////////////////////////////////////////////////////////////////////////////////////////////
+        ///////////////////////////////////////////////////////////////////////////////////////////////////
         //Get the location of a uniform variable in the shader
         GLuint getUniformLocation(const std::string &name) {
             // It is not efficient to ask OpenGL for Uniform location everytime we need them
@@ -45,6 +48,11 @@ namespace our {
             uniform_location_cache[name] = location; // and cache the location for later queries
             return location;
         }
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         //A group of setter for uniform variables
         //NOTE: It is inefficient to call glGetUniformLocation every frame
@@ -84,6 +92,12 @@ namespace our {
         //So if we copied the object, one of them can destroy the object(s) while the other still thinks they are valid.
         ShaderProgram(ShaderProgram const &) = delete;
         ShaderProgram &operator=(ShaderProgram const &) = delete;
+
+
+
+
+
+
     };
 
 }

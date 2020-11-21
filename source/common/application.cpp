@@ -16,10 +16,16 @@
 #define ENABLE_OPENGL_DEBUG_MESSAGES
 #endif
 
+///////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////
+
+
 // This function will be used to log errors thrown by GLFW
 void glfw_error_callback(int error, const char* description){
     std::cerr << "GLFW Error: " << error << ": " << description << std::endl;
 }
+////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // This function will be used to log OpenGL debug messages
 void GLAPIENTRY opengl_callback(GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei length, const GLchar* message, const void* userParam)
@@ -82,6 +88,11 @@ void GLAPIENTRY opengl_callback(GLenum source, GLenum type, GLuint id, GLenum se
     << " raised from " << _source << ": " << message << std::endl;
 }
 
+///////////////////////////////////////////////////
+///////////////////////////////////////////////////
+
+
+
 void our::Application::configureOpenGL() {
     // Request that OpenGL is 3.3
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
@@ -117,11 +128,23 @@ void our::Application::configureOpenGL() {
     glfwWindowHint(GLFW_REFRESH_RATE, GLFW_DONT_CARE);
 }
 
+//////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////
+
 our::WindowConfiguration our::Application::getWindowConfiguration() {
     return {"OpenGL Application", {1280, 720}, false };
 }
 
 // This is the main class function that run the whole application (Initialize, Game loop, House cleaning).
+
+
+
+
+///////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////
+// func that run the whole engine
+
+
 int our::Application::run() {
 
     // Set the function to call when an error occurs.
@@ -216,6 +239,7 @@ int our::Application::run() {
         double current_frame_time = glfwGetTime();
 
         // Call onDraw, in which we will draw the current frame, and send to it the time difference between the last and current frame
+        getShapeToDraw();
         onDraw(current_frame_time - last_frame_time);
         last_frame_time = current_frame_time; // Then update the last frame start time (this frame is now the last frame)
 
@@ -254,6 +278,9 @@ int our::Application::run() {
     glfwTerminate();
     return 0; // Good bye
 }
+
+////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////
 
 // Sets-up the window callback functions from GLFW to our (Mouse/Keyboard) classes.
 void our::Application::setupCallbacks() {
