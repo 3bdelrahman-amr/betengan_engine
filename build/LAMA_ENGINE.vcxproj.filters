@@ -35,6 +35,7 @@
     <ClCompile Include="..\source\common\mesh\mesh-utils.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="MeshRenderer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="D:\university\third year\graphics\betengan_engine\CMakeLists.txt" />
@@ -49,5 +50,9 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="VertexBuffer.h" />
+    <ClInclude Include="MeshRenderer.h" />
+    <ClInclude Include="transform.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

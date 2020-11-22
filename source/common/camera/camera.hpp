@@ -32,7 +32,9 @@ namespace our {
         // The orthographic_height is only used for orthographic cameras
         float field_of_view_y = glm::radians(90.0f), orthographic_height = 2.0f, aspect_ratio = 1.0f, near = 0.01f, far = 100.0f;
 
-        glm::mat4 V{}, P{}, VP{};
+        glm::mat4 V{},  //view matrix 
+                  P{}, // projection matrix
+                  VP{};  // view * projection matrix
 
     public:
         Camera(){
@@ -66,7 +68,8 @@ namespace our {
                 this->type = _type;
             }
         }
-        void setOrthographicSize(float orthographic_height){
+        void setOrthographicSize(float orthographic_height)
+        {
             if(this->orthographic_height != orthographic_height){
                 dirtyFlags |= P_DIRTY | VP_DIRTY;
                 this->orthographic_height = orthographic_height;

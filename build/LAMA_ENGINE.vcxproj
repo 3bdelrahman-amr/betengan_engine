@@ -328,6 +328,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClCompile Include="D:\university\third year\graphics\betengan_engine\vendor\imgui\imgui_widgets.cpp" />
     <ClCompile Include="D:\university\third year\graphics\betengan_engine\vendor\imgui\imgui_impl\imgui_impl_glfw.cpp" />
     <ClCompile Include="D:\university\third year\graphics\betengan_engine\vendor\imgui\imgui_impl\imgui_impl_opengl3.cpp" />
+    <ClCompile Include="MeshRenderer.cpp" />
     <ClCompile Include="VertexBuffer.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -344,6 +345,8 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="EngineApplication.h" />
+    <ClInclude Include="MeshRenderer.h" />
+    <ClInclude Include="transform.h" />
     <ClInclude Include="VertexBuffer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
