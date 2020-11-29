@@ -10,11 +10,11 @@ class MeshRenderer
 {
 private:
 	Camera* CameraPtr;
-
+	vector<Transform>* trans;
 /////////////////////
   Mesh *mesh;
   ShaderProgram *shader;
-  vector<Transform> *trans;
+ 
   ///////////////////////////////////////////////////////////
   bool enable_depth_test = false;
   GLenum depth_function = GL_LEQUAL;

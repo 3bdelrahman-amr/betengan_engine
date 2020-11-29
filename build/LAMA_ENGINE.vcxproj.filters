@@ -31,11 +31,13 @@
     <ClCompile Include="D:\university\third year\graphics\betengan_engine\vendor\imgui\imgui_impl\imgui_impl_opengl3.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="VertexBuffer.cpp" />
     <ClCompile Include="..\source\common\mesh\mesh-utils.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="MeshRenderer.cpp" />
+    <ClCompile Include="src\EntityManager.cpp" />
+    <ClCompile Include="Systems\ShaderSystem.cpp" />
+    <ClCompile Include="Systems\mesh-utils.cpp" />
+    <ClCompile Include="src\Application\Application.cpp" />
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="D:\university\third year\graphics\betengan_engine\CMakeLists.txt" />
@@ -46,13 +48,34 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="EngineApplication.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="VertexBuffer.h" />
-    <ClInclude Include="MeshRenderer.h" />
-    <ClInclude Include="transform.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
+    <ClInclude Include="src\AllComponents.h" />
+    <ClInclude Include="src\ComponentsManager.h" />
+    <ClInclude Include="src\ECS_Definitions.h" />
+    <ClInclude Include="src\EngineApplication.h" />
+    <ClInclude Include="src\EntityManager.h" />
+    <ClInclude Include="src\GenericArrayOfComponent.h" />
+    <ClInclude Include="src\Manager.h" />
+    <ClInclude Include="src\SomeDef.h" />
+    <ClInclude Include="src\System.h" />
+    <ClInclude Include="src\SystemManager.h" />
+    <ClInclude Include="components\Camera.h" />
+    <ClInclude Include="components\MeshRendererr.h" />
+    <ClInclude Include="components\Mesh.h" />
+    <ClInclude Include="components\ShaderProg.h" />
+    <ClInclude Include="Systems\ShaderSystem.h" />
+    <ClInclude Include="Systems\ComponentsDef.h" />
+    <ClInclude Include="Systems\CameraSystem.h" />
+    <ClInclude Include="components\CameraController.h" />
+    <ClInclude Include="Systems\MeshSystem.h" />
+    <ClInclude Include="components\transform.h" />
+    <ClInclude Include="Systems\common-vertex-attributes.hpp" />
+    <ClInclude Include="Systems\common-vertex-types.hpp" />
+    <ClInclude Include="Systems\mesh-utils.hpp" />
+    <ClInclude Include="Systems\vertex-attributes.hpp" />
+    <ClInclude Include="Systems\data-types.h" />
+    <ClInclude Include="Systems\MeshRendererSystem.h" />
+    <ClInclude Include="src\Application\Application.h" />
+    <ClInclude Include="src\Application\input\keyboard.h" />
+    <ClInclude Include="src\Application\input\mouse.h" />
   </ItemGroup>
 </Project>

@@ -3,7 +3,7 @@
 
 #include <string>
 #include <map>
-#include"../../build/VertexBuffer.h"
+//#include"../../build/VertexBuffer.h"
 #include <glad/gl.h>
 #include <glm/glm.hpp>
 #include <glm/gtc/type_ptr.hpp>
@@ -16,7 +16,7 @@ namespace our {
         //Shader Program Handle
         GLuint program;
         std::map<std::string, GLuint> uniform_location_cache;
-        VertexBuffer vb;
+        //VertexBuffer vb;
     public:
         void create();
         void destroy();

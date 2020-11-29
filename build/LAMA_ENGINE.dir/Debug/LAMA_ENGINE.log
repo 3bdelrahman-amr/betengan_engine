@@ -1,46 +1,30 @@
-﻿  main.cpp
-D:\university\third year\graphics\betengan_engine\source\common\input/mouse.hpp(81,1): warning C4244: '+=': conversion from 'double' to 'T', possible loss of data
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(1044,5): warning MSB8027: Two or more files with the name of mesh-utils.cpp will produce outputs to the same location. This can lead to an incorrect build result.  The files involved are ..\source\common\mesh\mesh-utils.cpp, Systems\mesh-utils.cpp.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(1044,5): warning MSB8027: Two or more files with the name of application.cpp will produce outputs to the same location. This can lead to an incorrect build result.  The files involved are D:\university\third year\graphics\betengan_engine\source\common\application.cpp, src\Application\Application.cpp.
+  main.cpp
+D:\university\third year\graphics\betengan_engine\build\src\Application\input/mouse.h(81,1): warning C4244: '+=': conversion from 'double' to 'T', possible loss of data
           with
           [
               T=float
           ]
-D:\university\third year\graphics\betengan_engine\source\common\input/mouse.hpp(82,1): warning C4244: '+=': conversion from 'double' to 'T', possible loss of data
+D:\university\third year\graphics\betengan_engine\build\src\Application\input/mouse.h(82,1): warning C4244: '+=': conversion from 'double' to 'T', possible loss of data
           with
           [
               T=float
           ]
-D:\university\third year\graphics\betengan_engine\build\../source/common/mesh/mesh.hpp(52,1): warning C4267: 'argument': conversion from 'size_t' to 'GLsizei', possible loss of data
-D:\university\third year\graphics\betengan_engine\build\../source/common/mesh/mesh.hpp(85,1): warning C4267: 'argument': conversion from 'size_t' to 'GLsizei', possible loss of data
-D:\university\third year\graphics\betengan_engine\build\../source/common/imgui-utils/utils.hpp(153,24): warning C4244: '=': conversion from 'float' to 'uint8_t', possible loss of data
-D:\university\third year\graphics\betengan_engine\build\../source/common/imgui-utils/utils.hpp(154,24): warning C4244: '=': conversion from 'float' to 'uint8_t', possible loss of data
-D:\university\third year\graphics\betengan_engine\build\../source/common/imgui-utils/utils.hpp(155,24): warning C4244: '=': conversion from 'float' to 'uint8_t', possible loss of data
-D:\university\third year\graphics\betengan_engine\build\../source/common/imgui-utils/utils.hpp(156,24): warning C4244: '=': conversion from 'float' to 'uint8_t', possible loss of data
-D:\university\third year\graphics\betengan_engine\source\../build/EngineApplication.h(48,25): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\university\third year\graphics\betengan_engine\build\Systems\MeshSystem.h(41,1): warning C4267: 'argument': conversion from 'size_t' to 'GLsizei', possible loss of data
+D:\university\third year\graphics\betengan_engine\build\Systems\MeshSystem.h(75,1): warning C4267: 'argument': conversion from 'size_t' to 'GLsizei', possible loss of data
+D:\university\third year\graphics\betengan_engine\source\../source/common/imgui-utils/utils.hpp(153,24): warning C4244: '=': conversion from 'float' to 'uint8_t', possible loss of data
+D:\university\third year\graphics\betengan_engine\source\../source/common/imgui-utils/utils.hpp(154,24): warning C4244: '=': conversion from 'float' to 'uint8_t', possible loss of data
+D:\university\third year\graphics\betengan_engine\source\../source/common/imgui-utils/utils.hpp(155,24): warning C4244: '=': conversion from 'float' to 'uint8_t', possible loss of data
+D:\university\third year\graphics\betengan_engine\source\../source/common/imgui-utils/utils.hpp(156,24): warning C4244: '=': conversion from 'float' to 'uint8_t', possible loss of data
+D:\university\third year\graphics\betengan_engine\source\../build/src/EngineApplication.h(56,25): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
           with
           [
               T=float
           ]
-D:\university\third year\graphics\betengan_engine\source\../build/EngineApplication.h(49,25): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+D:\university\third year\graphics\betengan_engine\source\../build/src/EngineApplication.h(57,25): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
           with
           [
               T=float
           ]
-  MeshRenderer.cpp
-D:\university\third year\graphics\betengan_engine\source\common\../common/mesh/mesh.hpp(52,1): warning C4267: 'argument': conversion from 'size_t' to 'GLsizei', possible loss of data
-D:\university\third year\graphics\betengan_engine\source\common\../common/mesh/mesh.hpp(85,1): warning C4267: 'argument': conversion from 'size_t' to 'GLsizei', possible loss of data
-D:\university\third year\graphics\betengan_engine\source\common\../common/imgui-utils/utils.hpp(153,24): warning C4244: '=': conversion from 'float' to 'uint8_t', possible loss of data
-D:\university\third year\graphics\betengan_engine\source\common\../common/imgui-utils/utils.hpp(154,24): warning C4244: '=': conversion from 'float' to 'uint8_t', possible loss of data
-D:\university\third year\graphics\betengan_engine\source\common\../common/imgui-utils/utils.hpp(155,24): warning C4244: '=': conversion from 'float' to 'uint8_t', possible loss of data
-D:\university\third year\graphics\betengan_engine\source\common\../common/imgui-utils/utils.hpp(156,24): warning C4244: '=': conversion from 'float' to 'uint8_t', possible loss of data
-D:\university\third year\graphics\betengan_engine\source\common\../common/imgui-utils/utils.hpp(175,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-MeshRenderer.cpp(77): message : see reference to function template instantiation 'void our::ReorderableList<std::_Vector_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>>(It,It,std::function<void (size_t,Transform &)>,std::function<void (size_t)>,std::function<void (size_t)>,size_t)' being compiled
-          with
-          [
-              _Ty=Transform,
-              It=std::_Vector_iterator<std::_Vector_val<std::_Simple_types<Transform>>>
-          ]
-D:\university\third year\graphics\betengan_engine\source\common\../common/imgui-utils/utils.hpp(177,1): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\university\third year\graphics\betengan_engine\source\common\../common/imgui-utils/utils.hpp(185,1): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\university\third year\graphics\betengan_engine\source\common\../common/imgui-utils/utils.hpp(208,1): warning C4305: 'argument': truncation from 'double' to 'float'
-  Generating Code...
   LAMA_ENGINE.vcxproj -> D:\university\third year\graphics\betengan_engine\build\Debug\LAMA_ENGINE.exe

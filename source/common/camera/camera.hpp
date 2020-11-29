@@ -41,7 +41,8 @@ namespace our {
             dirtyFlags = V_DIRTY | P_DIRTY | VP_DIRTY;
             up = {0, 1, 0};
         }
-
+        ////////////////////////////////////////////////////////////////////////
+        /////////////////////////////////////////////////////////////////////////
         // Setup the camera as a perspective camera
         void setupPerspective(float field_of_view_y, float aspect_ratio, float near, float far){
             this->type = CameraType::Perspective;
@@ -51,7 +52,8 @@ namespace our {
             this->far = far;
             dirtyFlags |= P_DIRTY | VP_DIRTY; // Both P & VP need to be regenerated
         }
-
+        ////////////////////////////////////////////////////////////////////////
+      /////////////////////////////////////////////////////////////////////////
         // Setup the camera as an orthographic camera
         void setupOrthographic(float orthographic_height, float aspect_ratio, float near, float far){
             this->type = CameraType::Orthographic;
@@ -61,6 +63,8 @@ namespace our {
             this->far = far;
             dirtyFlags |= P_DIRTY | VP_DIRTY; // Both P & VP need to be regenerated
         }
+        ////////////////////////////////////////////////////////////////////////
+      /////////////////////////////////////////////////////////////////////////
 
         void setType(CameraType _type){
             if(this->type != _type){
@@ -68,6 +72,8 @@ namespace our {
                 this->type = _type;
             }
         }
+        ////////////////////////////////////////////////////////////////////////
+      /////////////////////////////////////////////////////////////////////////
         void setOrthographicSize(float orthographic_height)
         {
             if(this->orthographic_height != orthographic_height){
@@ -75,12 +81,16 @@ namespace our {
                 this->orthographic_height = orthographic_height;
             }
         }
+        ////////////////////////////////////////////////////////////////////////
+      /////////////////////////////////////////////////////////////////////////
         void setVerticalFieldOfView(float field_of_view_y){
             if(this->field_of_view_y != field_of_view_y){
                 dirtyFlags |= P_DIRTY | VP_DIRTY;
                 this->field_of_view_y = field_of_view_y;
             }
         }
+        ////////////////////////////////////////////////////////////////////////
+      /////////////////////////////////////////////////////////////////////////
         void setAspectRatio(float aspect_ratio){
             if(this->aspect_ratio != aspect_ratio){
                 dirtyFlags |= P_DIRTY | VP_DIRTY;

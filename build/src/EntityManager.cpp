@@ -1,0 +1,70 @@
+#include "EntityManager.h"
+///<summary>
+/// /here we are creating Entity id from 0 to MaxE and push them to queue 
+// when we want to create new Entity we pop from the front ID and assign it to new Entity
+// when we delete an Entity we take it as parameter and push it back again to the Queue so we could use it agin in the future
+//<summary>
+
+EntityManager::EntityManager()
+{
+	
+	for (Entity entity = 0; entity < MaxE; ++entity)
+	{
+		mAvailableEntities.push(entity);
+	}
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Entity EntityManager::CreateEntity()
+{
+	//assert(mLivingEntityCount < MaxE && "Too many entities in existence.");
+
+	// Take an ID from the front of the queue
+	Entity id = mAvailableEntities.front();
+	mAvailableEntities.pop();
+	mLivingEntityCount++;
+
+	return id;
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void EntityManager::DestroyEntity(Entity entity)
+{
+	//assert(entity < MAX_ENTITIES && "Entity out of range.");
+
+	// Invalidate the destroyed entity's signature
+	mSignatures[entity].reset();
+
+	// Put the destroyed ID at the back of the queue
+	mAvailableEntities.push(entity);
+	mLivingEntityCount--;
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// Every Entity has a signature (a signature here is a bit set of MaxC bits ) that every bit here corresponds to a component if
+// it is set(='1) than the Entity has a component of this type else (='0) it doesn't
+// As an example, if Transform has type 0, RigidBody has type 1, and Gravity has type 2, an entity that “has” those three 
+// components would have a signature of 0b111 (bits 0, 1, and 2 are set)
+
+void EntityManager::SetSignature(Entity entity, Signature signature)
+{
+	//assert(entity < MaxE && "Entity out of range.");
+
+	// Put this entity's signature into the array
+	mSignatures[entity] = signature;
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+Signature EntityManager:: GetSignature(Entity entity)
+{
+	//assert(entity < MAX_ENTITIES && "Entity out of range.");
+
+	// Get this entity's signature from the array
+	return mSignatures[entity];
+}

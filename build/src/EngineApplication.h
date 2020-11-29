@@ -1,38 +1,46 @@
-#pragma once
-#include"application.hpp"
-#include "shader.hpp"
-#include"VertexBuffer.h"
+#ifndef ENGINE
+#define ENGINE
+
+#include<vector>
+#include"SomeDef.h"
+#include"Application/Application.h"
+#include"../Systems/MeshRendererSystem.h"
+//#include"../Systems/CameraSystem.h"
+//#include "shader.hpp"
 #include <iostream>
-#include"../source/common/mesh/mesh.hpp"
-#include"../source/common/mesh/mesh-utils.hpp"
+//#include"../source/common/mesh/mesh.hpp"
+//#include"../source/common/mesh/mesh-utils.hpp"
 #include"../source/common/imgui-utils/utils.hpp"
-#include"../../source/common/camera/controllers/fly_camera_controller.hpp"
-#include"../../source/common/camera/camera.hpp"
-#include<glm/gtx/euler_angles.hpp>
-#include"transform.h"
-#include"MeshRenderer.h"
+//#include"../../source/common/camera/controllers/fly_camera_controller.hpp"
+//#include"../../source/common/camera/camera.hpp"
+//#include<glm/gtx/euler_angles.hpp>
+//#include"../components/transform.h"
+//#include"MeshRenderer.h"
+//#include"Manager.h"
 //////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////
-class EngineApplication : public our::Application {
+
+class EngineApplication : public Betngan::Application {
 //////////////////////
-  
-    our::Camera camera;
-    MeshRenderer renderer;
-    our::FlyCameraController FlyCamera;
+    Entity CameraEntity;
+    vector<Entity> entities;
+    Manager manager;
+    //////////////////////////////////////
+    CameraSystem* CSys;
+    shared_ptr<MeshRendererSystem> MSys;
  
     ///////////////////////////////////////////
     glm::vec2 translation = glm::vec2(0, 0);
     glm::vec2 resoultion = glm::vec2(1280, 720);
     glm::vec3 color = glm::vec3(1, 0, 0);
     ////////////////////////////////////////////
-    //int shape=2;
-   // VertexBuffer va;
+   
     int state = 5;
 
-    our::WindowConfiguration getWindowConfiguration() override {
+    Betngan::WindowConfiguration getWindowConfiguration() override {
         return { "BETANGNAT ENGINE", {resoultion.x, resoultion.y }, false };
     }
     //getting the mouse position
@@ -53,19 +61,38 @@ private:
     //////////////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////////////////
     void onInitialize() override {
+        ////////////////////////////////////////////////////////
         
-        renderer.init(&camera);
-       
+        manager.Init();
+        Entity e = manager.CreateEntity();
+        entities.push_back(e);
+         MSys= manager.RegisterSystem<MeshRendererSystem>();
+         MSys->Set_Mngr_ptr(&manager);
+         manager.RegisterComponent<MeshRendererr>();
+         manager.AddComponent(e, MeshRendererr());
+         //manager.RegisterComponent<ShaderProg>();
+         manager.RegisterComponent<vector<Transform>>();
+         manager.AddComponent(e, vector<Transform>());
+         
+         //MSys->Entities.insert(e);
+         MSys->init(e);
+         CSys = MSys->get_cam_ptr();
+         CSys->SetEngineApp_ptr(&mouse,&keyboard,window);
+        CameraEntity = manager.CreateEntity();
         int width, height;
         glfwGetFramebufferSize(window, &width, &height);
-        //////// set up camera vectors (
-        camera.setEyePosition({ 10, 10, 10 }); //position vector which is x axis
-        camera.setTarget({ 0, 0, 0 }); // target vector
-        camera.setUp({ 0, 1, 0 }); // up vector 
+        //////////////////////
+        manager.RegisterComponent<Camera>();
+        manager.AddComponent(CameraEntity, Camera());
+        ////////////////
+        CSys->setEyePosition({ 10, 10, 10 },CameraEntity); //position vector which is x axis
+        CSys->setTarget({ 0, 0, 0 },CameraEntity); // target vector
+        CSys->setUp({ 0, 1, 0 }, CameraEntity); // up vector 
         /////////////////////////////////////////////////////////////////////////////////////////////////
-        camera.setupPerspective(glm::pi<float>() / 2, static_cast<float>(width) / height, 0.1f, 100.0f); //set perspective mode for the camera
+        //CameraSystem::se
+        CSys->setupPerspective(glm::pi<float>() / 2, static_cast<float>(width) / height, 0.1f, 100.0f,CameraEntity); //set perspective mode for the camera
 
-        FlyCamera.initialize(this, &camera);
+        CSys->initializeController(CameraEntity);
         glClearColor(0, 0, 0, 0);
     }
 
@@ -88,15 +115,14 @@ private:
 
 
     void onDraw(double deltaTime) override {
-        FlyCamera.update(deltaTime);
-        renderer.Draw();
-      
-    }
+      MSys->Draw(deltaTime,CameraEntity);
+}
  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     void onImmediateGui(ImGuiIO& io) override {
-        renderer.ImGui();
+        //renderer.ImGui();
       
     }
    
 
 };
+#endif // !ENGINE

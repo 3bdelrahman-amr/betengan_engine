@@ -1,6 +1,6 @@
 #include "shader.hpp"
 
-#include <cassert>
+//#include <cassert>
 #include <iostream>
 #include <filesystem>
 
@@ -30,7 +30,7 @@ void our::ShaderProgram::destroy() {
 bool our::ShaderProgram::attach(const std::string &filename, GLenum type) const {
     // first, we use C++17 filesystem library to get the directory (parent) path of the file.
     // the parent path will be sent to stb_include to search for files referenced by any "#include" preprocessor command.
-    auto file_path = std::filesystem::path(filename);
+      auto file_path = std::filesystem::path(filename);
     auto file_path_string = file_path.string();
     auto parent_path_string = file_path.parent_path().string();
     auto path_to_includes = &(parent_path_string[0]);
@@ -38,10 +38,11 @@ bool our::ShaderProgram::attach(const std::string &filename, GLenum type) const 
 
     // Read the file as a string and resolve any "#include"s recursively
     auto source = stb_include_file(&(file_path_string[0]), nullptr, path_to_includes, error);
-
+    //stb_
+   // stb_
     // Check if any loading errors happened
     if (source == nullptr) {
-        std::cerr << "ERROR: " << error << std::endl;
+         std::cerr << "ERROR: " << error << std::endl;
         return false;
     }
 

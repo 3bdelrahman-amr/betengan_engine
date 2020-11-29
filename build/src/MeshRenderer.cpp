@@ -20,14 +20,15 @@ void MeshRenderer::init(Camera* c)
 	shader->create();
 	shader->attach("../assets/shaders/ex11_transformation/transform.vert", GL_VERTEX_SHADER);
 	shader->attach("../assets/shaders/ex11_transformation/tint.frag", GL_FRAGMENT_SHADER);
+	//shader->attach("../assets/shaders/3Dheart.txt", GL_FRAGMENT_SHADER);
 	shader->link();
 
 	our::mesh_utils::Sphere(*mesh);
 	// translation for every object rendered of the mesh in the space
-	trans->push_back({ {0,10,0}, {0,0,0}, {7,2,7} });
-	trans->push_back({ {-2,1,-2}, {0,0,0}, {2,2,2} });
-	trans->push_back({ {2,1,-2}, {0,0,0}, {2,2,2} });
-	trans->push_back({ {-2,1,2}, {0,0,0}, {2,2,2} });
+	//trans->push_back({ {0,10,0}, {0,0,0}, {7,2,7} });
+	//trans->push_back({ {-2,1,-2}, {0,0,0}, {2,2,2} });
+	//trans->push_back({ {2,1,-2}, {0,0,0}, {2,2,2} });
+	//trans->push_back({ {-2,1,2}, {0,0,0}, {2,2,2} });
 	trans->push_back({ {2,1,2}, {0,0,0}, {2,2,2} });
 	
 	CameraPtr = c;

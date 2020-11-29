@@ -1,0 +1,21 @@
+#version 330 core
+
+in vec4 vertex_color;
+in vec4 pixpos;
+uniform vec4 tint; // A tint is something we can use to modify colors
+
+out vec4 frag_color;
+
+void main() {
+
+float z=pixpos.z*(2-(pixpos.y/15));    
+float y=4 + (1.2*pixpos.y) - abs(pixpos.x)*sqrt((20-abs(pixpos.x))/4);
+float heart=(pixpos.x*pixpos.x) + (y*y) + (z*z);
+  
+    if(heart==(10*10))
+frag_color = tint * vertex_color;
+else
+frag_color=vec4(1,0.0,0.0,0.0);
+
+ 
+}
